@@ -95,12 +95,12 @@ var layout, tolerance=0.2;
 		HLayout([~leftEyeOpenness], Button().states_([["max"]]).action_({~faceRanges[\leftEyeOpenness][1] = ~faceRAW[\leftEyeOpenness];})),
 		HLayout([~rightEyeOpenness], Button().states_([["max"]]).action_({~faceRanges[\rightEyeOpenness][1] = ~faceRAW[\rightEyeOpenness];})),
 		[StaticText().string_("Nostril Flare")],
-		HLayout([~nostrilFlare], Button().states_([["max"]]).action_({})),
+		HLayout([~nostrilFlare], Button().states_([["max"]]).action_({~faceRanges[\nostrilFlare][1] = ~faceRAW[\nostrilFlare];})),
 		[StaticText().string_("Mouth Width/Height")],
-		HLayout([~mouthWidth], Button().states_([["max"]]).action_({})),
-		HLayout([~mouthHeight], Button().states_([["max"]]).action_({})),
+		HLayout([~mouthWidth], Button().states_([["max"]]).action_({~faceRanges[\mouthWidth][1] = ~faceRAW[\mouthWidth];})),
+		HLayout([~mouthHeight], Button().states_([["max"]]).action_({~faceRanges[\mouthHeight][1] = ~faceRAW[\mouthHeight];})),
 		[StaticText().string_("Jaw Openness")],
-		HLayout([~jawOpenness], Button().states_([["max"]]).action_({})),
+		HLayout([~jawOpenness], Button().states_([["max"]]).action_({~faceRanges[\jawOpenness][1] = ~faceRAW[\jawOpenness];})),
 		[nil, s: 2],
 		[Button().states_([["Set norms"]]).action_({ | button |
 			~faceRAW.keysValuesDo({ |key, val|
@@ -181,71 +181,71 @@ var layout, tolerance=0.2;
 				'/gesture/mouth/width', {
 					// msg.postln;
 					AppClock.sched(0, {
-						~mouthWidth.value = msg[1].asFloat/(~faceRanges[\mouthWidth][0]*2);
+						~mouthWidth.value = msg[1].asFloat/(~faceRanges[\mouthWidth][1]);
 					});
-					~face[\mouthWidth] = val / (~faceRanges[\mouthWidth][0]*2);
+					~face[\mouthWidth] = val / (~faceRanges[\mouthWidth][1]);
 					~faceRAW[\mouthWidth] = val;
 				},
 				'/gesture/mouth/height', {
 					// msg.postln;
 					AppClock.sched(0, {
-						~mouthHeight.value = msg[1].asFloat/(~faceRanges[\mouthHeight][0]*2);
+						~mouthHeight.value = msg[1].asFloat/(~faceRanges[\mouthHeight][1]);
 					});
-					~face[\mouthHeight] = val / (~faceRanges[\mouthHeight][0]*2);
+					~face[\mouthHeight] = val / (~faceRanges[\mouthHeight][1]);
 					~faceRAW[\mouthHeight] = val;
 				},
 				'/gesture/eyebrow/left', {
 					// msg.postln;
 					AppClock.sched(0, {
-						~leftEyebrow.value = msg[1].asFloat/(~faceRanges[\leftEyebrow][0]*2);
+						~leftEyebrow.value = msg[1].asFloat/(~faceRanges[\leftEyebrow][1]);
 					});
-					~face[\leftEyebrow] = val / (~faceRanges[\leftEyebrow][0]*2);
+					~face[\leftEyebrow] = val / (~faceRanges[\leftEyebrow][1]);
 					~faceRAW[\leftEyebrow] = val;
 				},
 
 				'/gesture/eyebrow/right', {
 					AppClock.sched(0, {
-						~rightEyebrow.value = msg[1].asFloat/(~faceRanges[\rightEyebrow][0]*2);
+						~rightEyebrow.value = msg[1].asFloat/(~faceRanges[\rightEyebrow][1]);
 					});
-					~face[\rightEyebrow] = val / (~faceRanges[\rightEyebrow][0]*2);
+					~face[\rightEyebrow] = val / (~faceRanges[\rightEyebrow][1]);
 					~faceRAW[\rightEyebrow] = val;
 				},
 				'/gesture/eye/right', {
 					// msg.postln;
 					AppClock.sched(0, {
-						~rightEyeOpenness.value = msg[1].asFloat/(~faceRanges[\rightEyeOpenness][0]*2);
+						~rightEyeOpenness.value = msg[1].asFloat/(~faceRanges[\rightEyeOpenness][1]);
 					});
 
-					~face[\rightEyeOpenness] = val / (~faceRanges[\rightEyeOpenness][0]*2);
+					~face[\rightEyeOpenness] = val / (~faceRanges[\rightEyeOpenness][1]);
 					~faceRAW[\rightEyeOpenness] = val;
 				},
 				'/gesture/eye/left', {
 					// msg.postln;
 					AppClock.sched(0, {
-						~leftEyeOpenness.value = msg[1].asFloat/(~faceRanges[\leftEyeOpenness][0]*2);
+						~leftEyeOpenness.value = msg[1].asFloat/(~faceRanges[\leftEyeOpenness][1]);
 					});
 
-					~face[\leftEyeOpenness] = val / (~faceRanges[\leftEyeOpenness][0]*2);
+					~face[\leftEyeOpenness] = val / (~faceRanges[\leftEyeOpenness][1]);
 					~faceRAW[\leftEyeOpenness] = val;
 				},
 				'/gesture/nostrils',
 				{
 					AppClock.sched(0, {
-						~nostrilFlare.value = msg[1].asFloat/(~faceRanges[\nostrilFlare][0]*2);
+						~nostrilFlare.value = msg[1].asFloat/(~faceRanges[\nostrilFlare][1]);
 					});
-					~face[\nostrilFlare] = val / (~faceRanges[\nostrilFlare][0]*2);
+					~face[\nostrilFlare] = val / (~faceRanges[\nostrilFlare][1]);
 					~faceRAW[\nostrilFlare] = val;
 				},
 				'/gesture/jaw',
 				{
 					// msg.postln;
 					AppClock.sched(0, {
-						~jawOpenness.value = msg[1].asFloat/(~faceRanges[\jawOpenness][0]*2);
+						~jawOpenness.value = msg[1].asFloat/(~faceRanges[\jawOpenness][1]);
 					});
-					~face[\jawOpenness] = val / (~faceRanges[\jawOpenness][0]*2);
+					~face[\jawOpenness] = val / (~faceRanges[\jawOpenness][1]);
 					~faceRAW[\jawOpenness] = val;
 
-					transmit.value(\jawOpenness, val / (~faceRanges[\jawOpenness][0]*2));
+					transmit.value(\jawOpenness, val / (~faceRanges[\jawOpenness][1]));
 				},
 				{}
 			);
