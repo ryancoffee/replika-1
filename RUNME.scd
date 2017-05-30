@@ -1,5 +1,6 @@
 s.waitForBoot({
-	var host = NetAddr.new("127.0.0.1", 9002);
+	var host = NetAddr.new("127.0.0.1", 9002),
+	currentGesture = \none;
 
 var layout, tolerance=0.2;
 	// computeProximityN()
@@ -17,6 +18,7 @@ var layout, tolerance=0.2;
 
 	// transmit()
 	var transmit = { | name, message |
+		[name, message].postln;
 		host.sendMsg(name, message.asSymbol);
 	};
 
@@ -59,9 +61,18 @@ var layout, tolerance=0.2;
 
 		if(bestMatch[0].notNil(), {
 			if(bestMatch[1] < tolerance, {
-				bestMatch.postln;
-				transmit.value(\gestureTracked, bestMatch[0]);
+				if(bestMatch[0] != currentGesture, {
+					currentGesture = bestMatch[0];
+					transmit.value(\gestureTracked, currentGesture);
+				});
+			}, {
+				if(currentGesture != \none, {
+						currentGesture = \none;
+						transmit.value(\gestureTracked, currentGesture);
+				});
 			});
+
+
 		});
 	};
 
@@ -179,8 +190,8 @@ var layout, tolerance=0.2;
 
 			switch( msg[0],
 				'/gesture/mouth/width', {
-					var computedVal = (val - ~faceRanges[\mouthWidth][0]) / (~faceRanges[\mouthWidth][2] - ~faceRanges[\mouthWidth][0]);
-					// msg.postln;
+					var computedVal = val / (~faceRanges[\mouthWidth][0]*2);
+
 					AppClock.sched(0, {
 						~mouthWidth.value = computedVal;
 					});
@@ -188,8 +199,8 @@ var layout, tolerance=0.2;
 					~faceRAW[\mouthWidth] = val;
 				},
 				'/gesture/mouth/height', {
-					var computedVal = (val - ~faceRanges[\mouthHeight][0]) / (~faceRanges[\mouthHeight][2] - ~faceRanges[\mouthHeight][0]);
-					// msg.postln;
+					var computedVal = val / (~faceRanges[\mouthHeight][0]*2);
+
 					AppClock.sched(0, {
 						~mouthHeight.value = computedVal;
 					});
@@ -197,8 +208,8 @@ var layout, tolerance=0.2;
 					~faceRAW[\mouthHeight] = val;
 				},
 				'/gesture/eyebrow/left', {
-					var computedVal = (val - ~faceRanges[\leftEyebrow][0]) / (~faceRanges[\leftEyebrow][2] - ~faceRanges[\leftEyebrow][0]);
-					// msg.postln;
+					var computedVal = val / (~faceRanges[\leftEyebrow][0]*2);
+
 					AppClock.sched(0, {
 						~leftEyebrow.value = computedVal;
 					});
@@ -207,7 +218,7 @@ var layout, tolerance=0.2;
 				},
 
 				'/gesture/eyebrow/right', {
-					var computedVal = (val - ~faceRanges[\rightEyebrow][0]) / (~faceRanges[\rightEyebrow][2] - ~faceRanges[\rightEyebrow][0]);
+					var computedVal = val / (~faceRanges[\rightEyebrow][0]*2);
 					AppClock.sched(0, {
 						~rightEyebrow.value = computedVal;
 					});
@@ -215,8 +226,8 @@ var layout, tolerance=0.2;
 					~faceRAW[\rightEyebrow] = val;
 				},
 				'/gesture/eye/right', {
-					var computedVal = (val - ~faceRanges[\rightEyeOpenness][0]) / (~faceRanges[\rightEyeOpenness][2] - ~faceRanges[\rightEyeOpenness][0]);
-					// msg.postln;
+					var computedVal = val / (~faceRanges[\rightEyeOpenness][0]*2);
+
 					AppClock.sched(0, {
 						~rightEyeOpenness.value = computedVal;
 					});
@@ -225,8 +236,8 @@ var layout, tolerance=0.2;
 					~faceRAW[\rightEyeOpenness] = val;
 				},
 				'/gesture/eye/left', {
-					var computedVal = (val - ~faceRanges[\leftEyeOpenness][0]) / (~faceRanges[\leftEyeOpenness][2] - ~faceRanges[\leftEyeOpenness][0]);
-					// msg.postln;
+					var computedVal = val / (~faceRanges[\leftEyeOpenness][0]*2);
+
 					AppClock.sched(0, {
 						~leftEyeOpenness.value = computedVal;
 					});
@@ -235,7 +246,7 @@ var layout, tolerance=0.2;
 					~faceRAW[\leftEyeOpenness] = val;
 				},
 				'/gesture/nostrils', {
-					var computedVal = (val - ~faceRanges[\nostrilFlare][0]) / (~faceRanges[\nostrilFlare][2] - ~faceRanges[\nostrilFlare][0]);
+					var computedVal = val / (~faceRanges[\nostrilFlare][0]*2);
 					AppClock.sched(0, {
 						~nostrilFlare.value = computedVal;
 					});
@@ -243,15 +254,15 @@ var layout, tolerance=0.2;
 					~faceRAW[\nostrilFlare] = val;
 				},
 				'/gesture/jaw', {
-					var computedVal = (val - ~faceRanges[\jawOpenness][0]) / (~faceRanges[\jawOpenness][2] - ~faceRanges[\jawOpenness][0]);
-					// msg.postln;
+					var computedVal = val / (~faceRanges[\jawOpenness][0]*2);
+
 					AppClock.sched(0, {
 						~jawOpenness.value = computedVal;
 					});
 					~face[\jawOpenness] = computedVal;
 					~faceRAW[\jawOpenness] = val;
 
-					transmit.value(\jawOpenness, computedVal);
+					// transmit.value(\jawOpenness, computedVal);
 				},
 				{}
 			);
@@ -263,9 +274,30 @@ var layout, tolerance=0.2;
 	thisProcess.addOSCRecvFunc(f);
 
 	OSCdef(\tracker, { |msg|
-
-		// msg.postln;
 	}, '/gesture/mouth/width', recvPort: 8338);
+
+	// Sensors
+
+	p.close;
+	r.stop;
+
+	p = SerialPort("/dev/cu.usbmodem1411", baudrate: 9600, crtscts: true);
+
+	r= Routine({
+    var byte, str, res;
+	{
+        if(p.read==10, {
+            str = "";
+            while({byte = p.read; byte !=13 }, {
+                str= str++byte.asAscii;
+            });
+            res= str.asInteger;
+				transmit.value(\muscleSensor, res);
+				// ("read value:"+res).postln;
+        });
+		0.01.wait;
+	}.loop;
+}).play;
 
 });
 
