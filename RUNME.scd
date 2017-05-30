@@ -68,6 +68,7 @@ var layout, tolerance=0.2;
 			}, {
 				if(currentGesture != \none, {
 						currentGesture = \none;
+						bestMatch.postln;
 						transmit.value(\gestureTracked, currentGesture);
 				});
 			});
@@ -97,8 +98,10 @@ var layout, tolerance=0.2;
 	~nostrilFlare = Slider(bounds: Rect(0,0,200,50));
 	~jawOpenness = Slider(bounds: Rect(0,0,200,50));
 
+	~muscleSensorSlider = Slider(bounds: Rect(0,0,200,50));
+
 	w = Window.new("FACEMINA");
-	w.layout = VLayout(
+	w.layout = HLayout(VLayout(
 		[StaticText( bounds: Rect(10, 10, 200, 20)).string_("Eyebrow Height")],
 		HLayout([~leftEyebrow], Button().states_([["max"]]).action_({~faceRanges[\leftEyebrow][2] = ~faceRAW[\leftEyebrow];})),
 		HLayout([~rightEyebrow], Button().states_([["max"]]).action_({~faceRanges[\rightEyebrow][2] = ~faceRAW[\rightEyebrow];})),
@@ -142,6 +145,12 @@ var layout, tolerance=0.2;
 		[StaticText().string_("Tolerance")],
 		[Knob(bounds: Rect(0,0,200,200)).action_({|knob| tolerance = knob.value})]
 
+	),
+		HLayout(VLayout(
+			[StaticText( bounds: Rect(10, 10, 200, 20)).string_("Muscle Sensor")],
+			[~muscleSensorSlider],
+			[nil, s: 2],
+		))
 	);
 
 	w.front;
@@ -293,6 +302,9 @@ var layout, tolerance=0.2;
             });
             res= str.asInteger;
 				transmit.value(\muscleSensor, res);
+				AppClock.sched(0, {
+					~muscleSensorSlider.value = res / 1024;
+				});
 				// ("read value:"+res).postln;
         });
 		0.01.wait;
@@ -301,7 +313,7 @@ var layout, tolerance=0.2;
 
 });
 
-
+r.play;
 
 // A gesture is a
 
