@@ -287,33 +287,42 @@ var layout, tolerance=0.2;
 
 	// Sensors
 
-	p.close;
-	r.stop;
+	/*p.close;*/
+	/*r.stop;*/
 
-	p = SerialPort("/dev/cu.usbmodem1411", baudrate: 9600, crtscts: true);
+	p = SerialPort("/dev/cu.usbserial-A96PH37B", baudrate: 9600, crtscts: true);
 
 	r= Routine({
-    var byte, str, res;
-	{
-        if(p.read==10, {
-            str = "";
-            while({byte = p.read; byte !=13 }, {
-                str= str++byte.asAscii;
-            });
-            res= str.asInteger;
+		var byte, str, res;
+		{
+			if(p.read==10, {
+				str = "";
+				while({byte = p.read; byte !=13 }, {
+					str= str++byte.asAscii;
+				});
+				res= str.asInteger;
 				transmit.value(\muscleSensor, res);
 				AppClock.sched(0, {
 					~muscleSensorSlider.value = res / 1024;
 				});
 				// ("read value:"+res).postln;
-        });
-		0.01.wait;
-	}.loop;
-}).play;
+			});
+			0.01.wait;
+		}.loop;
+	}).play;
+
+	w.onClose = {
+		p.close;
+		r.stop;
+
+		thisProcess.removeOSCRecvFunc(f);
+
+		s.quit;
+		0.exit();
+	};
 
 });
 
-r.play;
 
 // A gesture is a
 
