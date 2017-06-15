@@ -290,7 +290,7 @@ var layout, tolerance=0.2;
 	p.close;
 	r.stop;
 
-	p = SerialPort("/dev/cu.usbmodem1411", baudrate: 9600, crtscts: true);
+	p = SerialPort("/dev/cu.usbserial-A96PH37B", baudrate: 9600, crtscts: true);
 
 	r= Routine({
     var byte, str, res;
