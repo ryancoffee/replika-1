@@ -335,7 +335,6 @@ var layout, tolerance=0.2;
 
 
 
-// Create one more in the Max patch
 
 // BReathing long noise breaths with nose
 // Glottal stops on contact mic
@@ -343,3 +342,23 @@ var layout, tolerance=0.2;
 
 // Glottal holds sample indefinitely that was triggered by gesture
 // stopping the sound by just rearticulating the gesture
+
+(
+f.free;
+f = {
+	var in, chain, buff;
+
+	buff = LocalBuf(2048,1);
+	in = SoundIn.ar(0);
+	chain = FFT(buff, in);
+
+	SendReply.kr(Impulse.kr(13), '/flatness', SpecFlatness.kr(chain) );
+	// Out.kr(0, [in, SpecFlatness.kr(chain).poll(1, "flatness: ")]);
+}.play;
+)
+
+(
+OSCdef(\flatness, { |msg|
+	msg.postln;
+}, '/flatness');
+)
