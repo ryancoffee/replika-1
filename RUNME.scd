@@ -436,7 +436,7 @@ h = {
 )
 
 
-
+/*
 //// PROTO
 
 u = NetAddr.new("127.0.0.1", 9002);
@@ -477,3 +477,8 @@ OSCdef(\glottal, { |msg|
 }, '/glottal');
 )
 u.sendMsg(\pitch, 500.0.rand);
+u.sendMsg(\noise, 1.0.rand);
+
+u.sendMsg(\gestureTracked, "E");
+u.sendMsg(\glottal, 1.0.rand);
+u.sendMsg(\gestureTracked, "none");*/
