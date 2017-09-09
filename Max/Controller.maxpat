@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 52.0, 79.0, 1552.0, 863.0 ],
+		"rect" : [ 39.0, 79.0, 1367.0, 740.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -37,6 +37,827 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-155",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1106.0, 167.0, 29.5, 22.0 ],
+					"style" : "",
+					"text" : "0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-154",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1019.5, 162.0, 29.5, 22.0 ],
+					"style" : "",
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-153",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 1106.0, 134.0, 76.0, 22.0 ],
+					"style" : "",
+					"text" : "delay 21000"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-152",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1019.5, 199.0, 98.0, 22.0 ],
+					"style" : "",
+					"text" : "s panningSwitch"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-151",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1211.0, 734.0, 96.0, 22.0 ],
+					"style" : "",
+					"text" : "r panningSwitch"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-150",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 960.0, 734.0, 96.0, 22.0 ],
+					"style" : "",
+					"text" : "r panningSwitch"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-149",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 686.0, 734.0, 96.0, 22.0 ],
+					"style" : "",
+					"text" : "r panningSwitch"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-148",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 427.0, 716.0, 96.0, 22.0 ],
+					"style" : "",
+					"text" : "r panningSwitch"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-147",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 153.0, 716.0, 96.0, 22.0 ],
+					"style" : "",
+					"text" : "r panningSwitch"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-139",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 157.0, 889.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-140",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 174.0, 889.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-141",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 141.0, 889.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-142",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 127.0, 889.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-143",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 153.0, 745.0, 64.0, 22.0 ],
+					"style" : "",
+					"text" : "phasor~ 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-144",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 147.5, 779.0, 51.0, 22.0 ],
+					"style" : "",
+					"text" : "+~ 0.75"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-145",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 4,
+					"outlettype" : [ "signal", "signal", "signal", "signal" ],
+					"patching_rect" : [ 116.0, 813.0, 50.5, 22.0 ],
+					"style" : "",
+					"text" : "pan4S"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-146",
+					"maxclass" : "newobj",
+					"numinlets" : 4,
+					"numoutlets" : 0,
+					"patching_rect" : [ 116.0, 846.0, 77.0, 22.0 ],
+					"style" : "",
+					"text" : "dac~ 1 2 3 4"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-130",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 413.0, 889.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-131",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 430.0, 889.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-132",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 397.0, 889.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-133",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 383.0, 889.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-134",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 409.0, 745.0, 64.0, 22.0 ],
+					"style" : "",
+					"text" : "phasor~ 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-135",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 403.5, 779.0, 51.0, 22.0 ],
+					"style" : "",
+					"text" : "+~ 0.75"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-136",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 4,
+					"outlettype" : [ "signal", "signal", "signal", "signal" ],
+					"patching_rect" : [ 372.0, 813.0, 50.5, 22.0 ],
+					"style" : "",
+					"text" : "pan4S"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-137",
+					"maxclass" : "newobj",
+					"numinlets" : 4,
+					"numoutlets" : 0,
+					"patching_rect" : [ 372.0, 846.0, 77.0, 22.0 ],
+					"style" : "",
+					"text" : "dac~ 1 2 3 4"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-121",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 678.0, 915.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-122",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 695.0, 915.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-123",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 662.0, 915.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-124",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 648.0, 915.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-125",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 674.0, 771.0, 64.0, 22.0 ],
+					"style" : "",
+					"text" : "phasor~ 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-126",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 668.5, 805.0, 51.0, 22.0 ],
+					"style" : "",
+					"text" : "+~ 0.75"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-127",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 4,
+					"outlettype" : [ "signal", "signal", "signal", "signal" ],
+					"patching_rect" : [ 637.0, 839.0, 50.5, 22.0 ],
+					"style" : "",
+					"text" : "pan4S"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-128",
+					"maxclass" : "newobj",
+					"numinlets" : 4,
+					"numoutlets" : 0,
+					"patching_rect" : [ 637.0, 872.0, 77.0, 22.0 ],
+					"style" : "",
+					"text" : "dac~ 1 2 3 4"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-112",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 964.0, 907.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-113",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 981.0, 907.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-114",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 948.0, 907.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-115",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 934.0, 907.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-116",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 960.0, 763.0, 64.0, 22.0 ],
+					"style" : "",
+					"text" : "phasor~ 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-117",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 954.5, 797.0, 51.0, 22.0 ],
+					"style" : "",
+					"text" : "+~ 0.75"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-118",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 4,
+					"outlettype" : [ "signal", "signal", "signal", "signal" ],
+					"patching_rect" : [ 923.0, 831.0, 50.5, 22.0 ],
+					"style" : "",
+					"text" : "pan4S"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-119",
+					"maxclass" : "newobj",
+					"numinlets" : 4,
+					"numoutlets" : 0,
+					"patching_rect" : [ 923.0, 864.0, 77.0, 22.0 ],
+					"style" : "",
+					"text" : "dac~ 1 2 3 4"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-108",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 1203.0, 915.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-109",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 1220.0, 915.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-106",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 1187.0, 915.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-107",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 1173.0, 915.5, 12.0, 137.5 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-102",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 1199.0, 771.0, 64.0, 22.0 ],
+					"style" : "",
+					"text" : "phasor~ 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-65",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 1193.5, 805.0, 51.0, 22.0 ],
+					"style" : "",
+					"text" : "+~ 0.75"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-64",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 4,
+					"outlettype" : [ "signal", "signal", "signal", "signal" ],
+					"patching_rect" : [ 1162.0, 839.0, 50.5, 22.0 ],
+					"style" : "",
+					"text" : "pan4S"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-62",
+					"maxclass" : "newobj",
+					"numinlets" : 4,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1162.0, 872.0, 77.0, 22.0 ],
+					"style" : "",
+					"text" : "dac~ 1 2 3 4"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"format" : 6,
+					"id" : "obj-61",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1060.0, 98.0, 50.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-57",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 1031.25, 97.0, 24.0, 24.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-51",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patcher" : 					{
+						"fileversion" : 1,
+						"appversion" : 						{
+							"major" : 7,
+							"minor" : 3,
+							"revision" : 3,
+							"architecture" : "x86",
+							"modernui" : 1
+						}
+,
+						"rect" : [ 969.0, 298.0, 383.0, 480.0 ],
+						"bglocked" : 0,
+						"openinpresentation" : 0,
+						"default_fontsize" : 12.0,
+						"default_fontface" : 0,
+						"default_fontname" : "Arial",
+						"gridonopen" : 1,
+						"gridsize" : [ 15.0, 15.0 ],
+						"gridsnaponopen" : 1,
+						"objectsnaponopen" : 1,
+						"statusbarvisible" : 2,
+						"toolbarvisible" : 1,
+						"lefttoolbarpinned" : 0,
+						"toptoolbarpinned" : 0,
+						"righttoolbarpinned" : 0,
+						"bottomtoolbarpinned" : 0,
+						"toolbars_unpinned_last_save" : 0,
+						"tallnewobj" : 0,
+						"boxanimatetime" : 200,
+						"enablehscroll" : 1,
+						"enablevscroll" : 1,
+						"devicewidth" : 0.0,
+						"description" : "",
+						"digest" : "",
+						"tags" : "",
+						"style" : "",
+						"subpatcher_template" : "",
+						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-19",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"patching_rect" : [ 105.0, 77.0, 24.0, 24.0 ],
+									"style" : ""
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-16",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"patching_rect" : [ 155.0, 131.0, 63.0, 22.0 ],
+									"style" : "",
+									"text" : "delay 500"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-15",
+									"maxclass" : "gswitch",
+									"numinlets" : 3,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 105.0, 288.0, 41.0, 32.0 ],
+									"style" : ""
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"comment" : "",
+									"id" : "obj-4",
+									"index" : 1,
+									"maxclass" : "outlet",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 105.0, 333.0, 30.0, 30.0 ],
+									"style" : ""
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"comment" : "",
+									"id" : "obj-2",
+									"index" : 1,
+									"maxclass" : "inlet",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 45.0, 43.0, 30.0, 30.0 ],
+									"style" : ""
+								}
+
+							}
+ ],
+						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-15", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-15", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-16", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-16", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-19", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-15", 1 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"order" : 0,
+									"source" : [ "obj-2", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-15", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"order" : 1,
+									"source" : [ "obj-2", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-19", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"order" : 2,
+									"source" : [ "obj-2", 0 ]
+								}
+
+							}
+ ]
+					}
+,
+					"patching_rect" : [ 1019.5, 60.0, 98.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"description" : "",
+						"digest" : "",
+						"globalpatchername" : "",
+						"style" : "",
+						"tags" : ""
+					}
+,
+					"style" : "",
+					"text" : "p pitchRegulator"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"fontsize" : 30.0,
 					"id" : "obj-49",
@@ -207,7 +1028,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 1225.0, 575.5, 12.0, 137.5 ],
+					"patching_rect" : [ 1225.0, 572.5, 12.0, 137.5 ],
 					"style" : ""
 				}
 
@@ -219,7 +1040,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 1211.0, 575.5, 12.0, 137.5 ],
+					"patching_rect" : [ 1211.0, 572.5, 12.0, 137.5 ],
 					"style" : ""
 				}
 
@@ -254,17 +1075,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-46",
-					"maxclass" : "ezdac~",
-					"numinlets" : 2,
-					"numoutlets" : 0,
-					"patching_rect" : [ 1157.0, 747.0, 45.0, 45.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-47",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
@@ -281,25 +1091,25 @@
 					"clipheight" : 25.6,
 					"data" : 					{
 						"clips" : [ 							{
-								"filename" : "/Users/scott/MobileScores/Dingen/sounds2/noiseBroad.aif",
+								"filename" : "/Users/iriscarminaescobaralba/Desktop/AUDIOS TEST/2 Women's March Los Angeles.wav",
 								"filekind" : "audiofile",
-								"loop" : 0,
+								"loop" : 1,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -308,21 +1118,44 @@
 								"filekind" : "audiofile",
 								"loop" : 0,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
+								}
+
+							}
+, 							{
+								"filename" : "/Users/scott/MobileScores/Dingen/sounds2/noiseBroad.aif",
+								"filekind" : "audiofile",
+								"loop" : 0,
+								"content_state" : 								{
+									"originallength" : [ 0.0, "ticks" ],
+									"formantcorrection" : [ 0 ],
+									"play" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
+									"timestretch" : [ 0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
+									"basictuning" : [ 440 ],
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -331,21 +1164,21 @@
 								"filekind" : "audiofile",
 								"loop" : 0,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -553,17 +1386,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-29",
-					"maxclass" : "ezdac~",
-					"numinlets" : 2,
-					"numoutlets" : 0,
-					"patching_rect" : [ 899.0, 747.0, 45.0, 45.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-30",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
@@ -580,25 +1402,25 @@
 					"clipheight" : 25.6,
 					"data" : 					{
 						"clips" : [ 							{
-								"filename" : "/Users/scott/MobileScores/Dingen/sounds2/noiseBroad.aif",
+								"filename" : "/Users/iriscarminaescobaralba/Desktop/AUDIOS TEST/2 Women's March Los Angeles.wav",
 								"filekind" : "audiofile",
-								"loop" : 0,
+								"loop" : 1,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -607,21 +1429,44 @@
 								"filekind" : "audiofile",
 								"loop" : 0,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
+								}
+
+							}
+, 							{
+								"filename" : "/Users/scott/MobileScores/Dingen/sounds2/noiseBroad.aif",
+								"filekind" : "audiofile",
+								"loop" : 0,
+								"content_state" : 								{
+									"originallength" : [ 0.0, "ticks" ],
+									"formantcorrection" : [ 0 ],
+									"play" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
+									"timestretch" : [ 0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
+									"basictuning" : [ 440 ],
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -630,21 +1475,21 @@
 								"filekind" : "audiofile",
 								"loop" : 0,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -897,17 +1742,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-99",
-					"maxclass" : "ezdac~",
-					"numinlets" : 2,
-					"numoutlets" : 0,
-					"patching_rect" : [ 618.0, 741.0, 45.0, 45.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-100",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
@@ -924,25 +1758,25 @@
 					"clipheight" : 25.6,
 					"data" : 					{
 						"clips" : [ 							{
-								"filename" : "/Users/scott/MobileScores/Dingen/sounds2/noiseBroad.aif",
+								"filename" : "/Users/iriscarminaescobaralba/Desktop/AUDIOS TEST/2 Women's March Los Angeles.wav",
 								"filekind" : "audiofile",
-								"loop" : 0,
+								"loop" : 1,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -951,21 +1785,44 @@
 								"filekind" : "audiofile",
 								"loop" : 0,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
+								}
+
+							}
+, 							{
+								"filename" : "/Users/scott/MobileScores/Dingen/sounds2/noiseBroad.aif",
+								"filekind" : "audiofile",
+								"loop" : 0,
+								"content_state" : 								{
+									"originallength" : [ 0.0, "ticks" ],
+									"formantcorrection" : [ 0 ],
+									"play" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
+									"timestretch" : [ 0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
+									"basictuning" : [ 440 ],
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -974,21 +1831,21 @@
 								"filekind" : "audiofile",
 								"loop" : 0,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -1196,17 +2053,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-82",
-					"maxclass" : "ezdac~",
-					"numinlets" : 2,
-					"numoutlets" : 0,
-					"patching_rect" : [ 362.0, 741.0, 45.0, 45.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-83",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
@@ -1223,25 +2069,25 @@
 					"clipheight" : 25.6,
 					"data" : 					{
 						"clips" : [ 							{
-								"filename" : "/Users/scott/MobileScores/Dingen/sounds2/noiseBroad.aif",
+								"filename" : "/Users/iriscarminaescobaralba/Desktop/AUDIOS TEST/2 Women's March Los Angeles.wav",
 								"filekind" : "audiofile",
-								"loop" : 0,
+								"loop" : 1,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -1250,21 +2096,44 @@
 								"filekind" : "audiofile",
 								"loop" : 0,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
+								}
+
+							}
+, 							{
+								"filename" : "/Users/scott/MobileScores/Dingen/sounds2/noiseBroad.aif",
+								"filekind" : "audiofile",
+								"loop" : 0,
+								"content_state" : 								{
+									"originallength" : [ 0.0, "ticks" ],
+									"formantcorrection" : [ 0 ],
+									"play" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
+									"timestretch" : [ 0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
+									"basictuning" : [ 440 ],
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -1273,21 +2142,21 @@
 								"filekind" : "audiofile",
 								"loop" : 0,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -1532,17 +2401,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-6",
-					"maxclass" : "ezdac~",
-					"numinlets" : 2,
-					"numoutlets" : 0,
-					"patching_rect" : [ 97.0, 741.0, 45.0, 45.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-4",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
@@ -1559,25 +2417,25 @@
 					"clipheight" : 25.6,
 					"data" : 					{
 						"clips" : [ 							{
-								"filename" : "/Users/scott/MobileScores/Dingen/sounds2/noiseBroad.aif",
+								"filename" : "/Users/iriscarminaescobaralba/Desktop/AUDIOS TEST/2 Women's March Los Angeles.wav",
 								"filekind" : "audiofile",
-								"loop" : 0,
+								"loop" : 1,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -1586,21 +2444,44 @@
 								"filekind" : "audiofile",
 								"loop" : 0,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
+								}
+
+							}
+, 							{
+								"filename" : "/Users/scott/MobileScores/Dingen/sounds2/noiseBroad.aif",
+								"filekind" : "audiofile",
+								"loop" : 0,
+								"content_state" : 								{
+									"originallength" : [ 0.0, "ticks" ],
+									"formantcorrection" : [ 0 ],
+									"play" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
+									"timestretch" : [ 0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
+									"basictuning" : [ 440 ],
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -1609,21 +2490,21 @@
 								"filekind" : "audiofile",
 								"loop" : 0,
 								"content_state" : 								{
-									"originallengthms" : [ 0.0 ],
 									"originallength" : [ 0.0, "ticks" ],
-									"quality" : [ "basic" ],
-									"mode" : [ "basic" ],
-									"formant" : [ 1.0 ],
 									"formantcorrection" : [ 0 ],
-									"pitchshift" : [ 1.0 ],
-									"slurtime" : [ 0.0 ],
 									"play" : [ 0 ],
-									"followglobaltempo" : [ 0 ],
+									"originallengthms" : [ 0.0 ],
+									"originaltempo" : [ 120.0 ],
 									"timestretch" : [ 0 ],
-									"pitchcorrection" : [ 0 ],
-									"speed" : [ 1.0 ],
+									"quality" : [ "basic" ],
+									"slurtime" : [ 0.0 ],
+									"formant" : [ 1.0 ],
+									"pitchshift" : [ 1.0 ],
+									"mode" : [ "basic" ],
 									"basictuning" : [ 440 ],
-									"originaltempo" : [ 120.0 ]
+									"followglobaltempo" : [ 0 ],
+									"pitchcorrection" : [ 0 ],
+									"speed" : [ 1.0 ]
 								}
 
 							}
@@ -1648,9 +2529,9 @@
 					"id" : "obj-1",
 					"maxclass" : "newobj",
 					"numinlets" : 0,
-					"numoutlets" : 9,
-					"outlettype" : [ "bang", "bang", "bang", "bang", "bang", "bang", "bang", "", "" ],
-					"patching_rect" : [ 101.5, 45.0, 893.0, 22.0 ],
+					"numoutlets" : 11,
+					"outlettype" : [ "bang", "bang", "bang", "bang", "bang", "bang", "bang", "", "", "", "" ],
+					"patching_rect" : [ 101.5, 17.0, 893.0, 22.0 ],
 					"style" : "",
 					"text" : "OSCRouter"
 				}
@@ -1699,6 +2580,15 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-1", 4 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-51", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-1", 8 ]
 				}
 
 			}
@@ -1769,10 +2659,313 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-65", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-102", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-117", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-116", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-118", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-117", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-112", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-118", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-113", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-118", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-114", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-118", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-115", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-118", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-119", 3 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-118", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-119", 2 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-118", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-119", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-118", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-119", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-118", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-126", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-125", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-127", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-126", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-121", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-127", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-122", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-127", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-123", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-127", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-124", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-127", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-128", 3 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-127", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-128", 2 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-127", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-128", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-127", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-128", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-127", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-13", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-135", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-134", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-136", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-135", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-130", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-136", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-131", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-136", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-132", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-136", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-133", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-136", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-137", 3 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-136", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-137", 2 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-136", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-137", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-136", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-137", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-136", 0 ]
 				}
 
 			}
@@ -1787,10 +2980,180 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-144", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-143", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-145", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-144", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-139", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-145", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-140", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-145", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-141", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-145", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-142", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-145", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-146", 3 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-145", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-146", 2 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-145", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-146", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-145", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-146", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-145", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-143", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-147", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-134", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-148", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-125", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-149", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-16", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-15", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-116", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-150", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-102", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-151", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-155", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-153", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-152", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-154", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-152", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-155", 0 ]
 				}
 
 			}
@@ -1808,7 +3171,7 @@
 					"destination" : [ "obj-10", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 1052.75, 709.0, 1146.0, 709.0, 1146.0, 235.0, 990.0, 235.0, 990.0, 139.0, 955.5, 139.0 ],
+					"midpoints" : [ 1052.75, 709.0, 1146.0, 709.0, 1146.0, 235.0, 1004.0, 235.0, 1004.0, 139.0, 955.5, 139.0 ],
 					"source" : [ "obj-17", 0 ]
 				}
 
@@ -1907,6 +3270,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-118", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-27", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-22", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -1917,11 +3290,11 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-29", 1 ],
+					"destination" : [ "obj-118", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"order" : 1,
-					"source" : [ "obj-27", 0 ]
+					"source" : [ "obj-28", 0 ]
 				}
 
 			}
@@ -1941,16 +3314,6 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-28", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-29", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"order" : 1,
-					"source" : [ "obj-28", 0 ]
 				}
 
 			}
@@ -2124,7 +3487,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-46", 1 ],
+					"destination" : [ "obj-64", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"order" : 1,
@@ -2153,7 +3516,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-46", 0 ],
+					"destination" : [ "obj-64", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"order" : 1,
@@ -2219,6 +3582,26 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-57", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-51", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-61", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-51", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-59", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -2247,6 +3630,26 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-153", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-57", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-154", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-57", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-4", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -2269,6 +3672,95 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-63", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-106", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-64", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-107", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-64", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-108", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-64", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-109", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-64", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-62", 3 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-64", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-62", 2 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-64", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-62", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-64", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-62", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-64", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-64", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-65", 0 ]
 				}
 
 			}
@@ -2313,7 +3805,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-6", 0 ],
+					"destination" : [ "obj-145", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"order" : 1,
@@ -2415,11 +3907,21 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-6", 1 ],
+					"destination" : [ "obj-145", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"order" : 1,
 					"source" : [ "obj-8", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-136", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-80", 0 ]
 				}
 
 			}
@@ -2435,11 +3937,11 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-82", 1 ],
+					"destination" : [ "obj-136", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"order" : 1,
-					"source" : [ "obj-80", 0 ]
+					"source" : [ "obj-81", 0 ]
 				}
 
 			}
@@ -2459,16 +3961,6 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-81", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-82", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"order" : 1,
-					"source" : [ "obj-81", 0 ]
 				}
 
 			}
@@ -2622,6 +4114,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-127", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 1,
+					"source" : [ "obj-97", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-95", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -2632,11 +4134,11 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-99", 1 ],
+					"destination" : [ "obj-127", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"order" : 1,
-					"source" : [ "obj-97", 0 ]
+					"source" : [ "obj-98", 0 ]
 				}
 
 			}
@@ -2659,37 +4161,23 @@
 				}
 
 			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-99", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"order" : 1,
-					"source" : [ "obj-98", 0 ]
-				}
-
-			}
  ],
-		"parameters" : 		{
-
-		}
-,
 		"dependency_cache" : [ 			{
 				"name" : "OSCRouter.maxpat",
-				"bootpath" : "~/Desktop/Carmina/Max",
+				"bootpath" : "~/Desktop/REPLIKA-Face/code/Max",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "noiseBroad.aif",
-				"bootpath" : "~/MobileScores/Dingen/sounds2",
-				"type" : "AIFF",
+				"name" : "2 Women's March Los Angeles.wav",
+				"bootpath" : "~/Desktop/AUDIOS TEST",
+				"type" : "WAVE",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "noiseMedium2.wav",
-				"bootpath" : "~/MobileScores/Dingen/sounds2",
-				"type" : "WAVE",
+				"name" : "pan4S.maxpat",
+				"bootpath" : "/Users/Shared/Max 7/Examples/spatialization/panning/lib",
+				"type" : "JSON",
 				"implicit" : 1
 			}
  ],

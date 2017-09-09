@@ -346,19 +346,72 @@ var layout, tolerance=0.2;
 (
 f.free;
 f = {
-	var in, chain, buff;
+	var in, chain, buff, amp, pitch, hasAmp;
 
 	buff = LocalBuf(2048,1);
 	in = SoundIn.ar(0);
 	chain = FFT(buff, in);
+	
+	amp = Amplitude.kr(in);
+	#pitch, hasAmp = Pitch.kr(in);
 
-	SendReply.kr(Impulse.kr(13), '/flatness', SpecFlatness.kr(chain) );
-	// Out.kr(0, [in, SpecFlatness.kr(chain).poll(1, "flatness: ")]);
+	SendReply.kr(Impulse.kr(13), '/flatness', [SpecFlatness.kr(chain), amp, pitch, hasAmp] );
+}.play;
+h.free;
+h = {
+	var in, chain, buff, amp, pitch, hasAmp, onset;
+
+	buff = LocalBuf(2048,1);
+	in = SoundIn.ar(1);
+	chain = FFT(buff, in);
+	
+	onset = Onsets.kr(chain, 0.1, \complex);
+	amp = Amplitude.kr(in);
+	#pitch, hasAmp = Pitch.kr(in);
+
+	SendReply.kr(onset, '/glottal', [amp, pitch, hasAmp] );
 }.play;
 )
 
+g = TempoClock.new
+
+g.schedAbs(0.1, {});
+g.beatDur
+g.queue
+
+u = NetAddr.new("127.0.0.1", 9002);
+
 (
+var gate = false,
+	clock = TempoClock.new(1);
+
+
 OSCdef(\flatness, { |msg|
-	msg.postln;
+	var amp = msg[4].asFloat;
+	var flatness = msg[3].asFloat,
+		pitch = msg[5].asFloat,
+		hasAmp = msg[6].asFloat;
+		
+	//values.mean;
+	
+	if((amp > 0.1) && (flatness >= 0.15), {
+		["noise", hasAmp].postln;
+	}, {
+		if((amp > 0.1) && (hasAmp == 1) && (pitch > 100) , {
+			if(gate == false, {
+				["pitch", pitch, hasAmp].postln;
+				u.sendMsg(\pitch, pitch);
+			});
+		});
+	});
 }, '/flatness');
+
+OSCdef(\glottal, { |msg|
+	var amp = msg[3].asFloat,
+		pitch = msg[4].asFloat,
+		hasAmp = msg[5].asFloat;
+		
+	["glottal", amp].postln;
+}, '/glottal');
 )
+u.sendMsg(\pitch, 500.0.rand);
