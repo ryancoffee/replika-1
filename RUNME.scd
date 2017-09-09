@@ -290,7 +290,7 @@ var layout, tolerance=0.2;
 	/*p.close;*/
 	/*r.stop;*/
 
-	p = SerialPort("/dev/cu.usbserial-A96PH37B", baudrate: 9600, crtscts: true);
+/*	p = SerialPort("/dev/cu.usbserial-A96PH37B", baudrate: 9600, crtscts: true);
 
 	r= Routine({
 		var byte, str, res;
@@ -309,10 +309,10 @@ var layout, tolerance=0.2;
 			});
 			0.01.wait;
 		}.loop;
-	}).play;
+	}).play;*/
 
 	w.onClose = {
-		p.close;
+		/*p.close;*/
 		r.stop;
 
 		thisProcess.removeOSCRecvFunc(f);
@@ -332,3 +332,14 @@ var layout, tolerance=0.2;
 // contact mic / flexer
 
 // One piece of software which controls all of them
+
+
+
+// Create one more in the Max patch
+
+// BReathing long noise breaths with nose
+// Glottal stops on contact mic
+// pitches that are sung
+
+// Glottal holds sample indefinitely that was triggered by gesture
+// stopping the sound by just rearticulating the gesture
