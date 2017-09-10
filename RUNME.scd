@@ -133,16 +133,16 @@ var layout, tolerance=0.2;
 				~gestures[\B] = ~face.copy;
 			})],
 			[Button().states_([["C"]]).action_({
-				~gestures[\A] = ~face.copy;
+				~gestures[\C] = ~face.copy;
 			})],
 			[Button().states_([["D"]]).action_({
-				~gestures[\B] = ~face.copy;
+				~gestures[\D] = ~face.copy;
 			})],
 			[Button().states_([["E"]]).action_({
-				~gestures[\A] = ~face.copy;
+				~gestures[\E] = ~face.copy;
 			})],
 			[Button().states_([["F"]]).action_({
-				~gestures[\B] = ~face.copy;
+				~gestures[\F] = ~face.copy;
 			})]
 		),
 		[StaticText().string_("Tolerance")],
@@ -155,6 +155,54 @@ var layout, tolerance=0.2;
 			[nil, s: 2],
 		))
 	);
+
+	w.view.keyDownAction = { arg view, char, modifiers, unicode, keycode;
+
+		switch(keycode,
+			0, {
+				w.background = Color.white;
+				~gestures[\A] = ~face.copy;
+
+				AppClock.sched(0.25, {
+					w.background = Color.gray;
+				});
+			},
+			1, {
+				w.background = Color.white;
+				~gestures[\B] = ~face.copy;
+
+				AppClock.sched(0.25, {
+					w.background = Color.gray;
+				});
+			},
+			2, {
+				w.background = Color.white;
+				~gestures[\C] = ~face.copy;
+
+				AppClock.sched(0.25, {
+					w.background = Color.gray;
+				});
+			},
+			3, {
+				w.background = Color.white;
+				~gestures[\D] = ~face.copy;
+
+				AppClock.sched(0.25, {
+					w.background = Color.gray;
+				});
+			},
+			12, {
+				w.background = Color.red;
+				~faceRAW.keysValuesDo({ |key, val|
+					~faceRanges[key][0] = val;
+				});
+
+				AppClock.sched(0.25, {
+					w.background = Color.gray;
+				});
+			}
+		);
+	};
 
 	w.front;
 
@@ -350,36 +398,8 @@ OSCdef(\glottal, { |msg|
 
 }, '/glottal');
 
-	// Sensors
-
-	/*p.close;*/
-	/*r.stop;*/
-
-/*	p = SerialPort("/dev/cu.usbserial-A96PH37B", baudrate: 9600, crtscts: true);
-
-	r= Routine({
-		var byte, str, res;
-		{
-			if(p.read==10, {
-				str = "";
-				while({byte = p.read; byte !=13 }, {
-					str= str++byte.asAscii;
-				});
-				res= str.asInteger;
-				transmit.value(\muscleSensor, res);
-				AppClock.sched(0, {
-					~muscleSensorSlider.value = res / 1024;
-				});
-				// ("read value:"+res).postln;
-			});
-			0.01.wait;
-		}.loop;
-	}).play;*/
 
 	w.onClose = {
-		/*p.close;*/
-		//r.stop;
-
 		thisProcess.removeOSCRecvFunc(f);
 
 		s.quit;
@@ -407,82 +427,3 @@ OSCdef(\glottal, { |msg|
 
 // Glottal holds sample indefinitely that was triggered by gesture
 // stopping the sound by just rearticulating the gesture
-
-/*
-//// PROTO
-(
-f.free;
-f = {
-	var in, chain, buff, amp, pitch, hasAmp;
-
-	buff = LocalBuf(2048,1);
-	in = SoundIn.ar(0);
-	chain = FFT(buff, in);
-
-	amp = Amplitude.kr(in);
-	#pitch, hasAmp = Pitch.kr(in);
-
-	SendReply.kr(Impulse.kr(13), '/flatness', [SpecFlatness.kr(chain), amp, pitch, hasAmp] );
-}.play;
-h.free;
-h = {
-	var in, chain, buff, amp, pitch, hasAmp, onset;
-
-	buff = LocalBuf(2048,1);
-	in = SoundIn.ar(1);
-	chain = FFT(buff, in);
-
-	onset = Onsets.kr(chain, 0.1, \complex);
-	amp = Amplitude.kr(in);
-	#pitch, hasAmp = Pitch.kr(in);
-
-	SendReply.kr(onset, '/glottal', [amp, pitch, hasAmp] );
-}.play;
-)
-
-
-
-
-u = NetAddr.new("127.0.0.1", 9002);
-
-(
-var gate = false,
-	clock = TempoClock.new(1);
-
-
-OSCdef(\flatness, { |msg|
-	var amp = msg[4].asFloat;
-	var flatness = msg[3].asFloat,
-		pitch = msg[5].asFloat,
-		hasAmp = msg[6].asFloat;
-
-	//values.mean;
-
-	if((amp > 0.1) && (flatness >= 0.15), {
-		["noise", hasAmp].postln;
-		u.sendMsg(\noise, amp);
-	}, {
-		if((amp > 0.1) && (hasAmp == 1) && (pitch > 100) , {
-			if(gate == false, {
-				["pitch", pitch, hasAmp].postln;
-				u.sendMsg(\pitch, pitch);
-			});
-		});
-	});
-}, '/flatness');
-
-OSCdef(\glottal, { |msg|
-	var amp = msg[3].asFloat,
-		pitch = msg[4].asFloat,
-		hasAmp = msg[5].asFloat;
-
-	["glottal", amp].postln;
-	u.sendMsg(\glottal, 1);
-}, '/glottal');
-)
-u.sendMsg(\pitch, 500.0.rand);
-u.sendMsg(\noise, 1.0.rand);
-
-u.sendMsg(\gestureTracked, "E");
-u.sendMsg(\glottal, 1.0.rand);
-u.sendMsg(\gestureTracked, "none");*/
