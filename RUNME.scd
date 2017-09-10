@@ -90,19 +90,20 @@ var layout, tolerance=0.2;
 	// GUI
 	~gestures = Dictionary.new;
 
-	~leftEyebrow = Slider(bounds: Rect(0,0,200,50));
-	~rightEyebrow = Slider(bounds: Rect(0,0,200,50));
-	~leftEyeOpenness = Slider(bounds: Rect(0,0,200,50));
-	~rightEyeOpenness = Slider(bounds: Rect(0,0,200,50));
-
-	~mouthWidth = Slider(bounds: Rect(0,0,200,50));
-	~mouthHeight = Slider(bounds: Rect(0,0,200,50));
-	~nostrilFlare = Slider(bounds: Rect(0,0,200,50));
-	~jawOpenness = Slider(bounds: Rect(0,0,200,50));
-
-	~muscleSensorSlider = Slider(bounds: Rect(0,0,200,50));
-
 	w = Window.new("FACEMINA");
+
+	~leftEyebrow = Slider(w, bounds: Rect(0,0,200,50));
+	~rightEyebrow = Slider(w, bounds: Rect(0,0,200,50));
+	~leftEyeOpenness = Slider(w, bounds: Rect(0,0,200,50));
+	~rightEyeOpenness = Slider(w, bounds: Rect(0,0,200,50));
+
+	~mouthWidth = Slider(w, bounds: Rect(0,0,200,50));
+	~mouthHeight = Slider(w, bounds: Rect(0,0,200,50));
+	~nostrilFlare = Slider(w, bounds: Rect(0,0,200,50));
+	~jawOpenness = Slider(w, bounds: Rect(0,0,200,50));
+
+	~muscleSensorSlider = Slider(w, bounds: Rect(0,0,200,50));
+
 	w.layout = HLayout(VLayout(
 		[StaticText( bounds: Rect(10, 10, 200, 20)).string_("Eyebrow Height")],
 		HLayout([~leftEyebrow], Button().states_([["max"]]).action_({~faceRanges[\leftEyebrow][2] = ~faceRAW[\leftEyebrow];})),
@@ -283,30 +284,30 @@ var layout, tolerance=0.2;
 	};
 
 	thisProcess.addOSCRecvFunc(f);
-	
-	
-	f.free;
-f = {
+
+
+	~flatnessSynth.free;
+~flatnessSynth = {
 	var in, chain, buff, amp, pitch, hasAmp;
 
 	buff = LocalBuf(2048,1);
 	in = SoundIn.ar(0);
 	chain = FFT(buff, in);
-	
+
 	amp = Amplitude.kr(in);
 	#pitch, hasAmp = Pitch.kr(in);
 
 	SendReply.kr(Impulse.kr(13), '/flatness', [SpecFlatness.kr(chain), amp, pitch, hasAmp] );
 }.play;
 
-h.free;
-h = {
+~glottalSynth.free;
+~glottalSynth = {
 	var in, chain, buff, amp, pitch, hasAmp, onset;
 
 	buff = LocalBuf(2048,1);
 	in = SoundIn.ar(1);
 	chain = FFT(buff, in);
-	
+
 	onset = Onsets.kr(chain, 0.1, \complex);
 	amp = Amplitude.kr(in);
 	#pitch, hasAmp = Pitch.kr(in);
@@ -316,23 +317,23 @@ h = {
 
 	OSCdef(\tracker, { |msg|
 	}, '/gesture/mouth/width', recvPort: 8338);
-	
+
 	OSCdef(\flatness, { |msg|
 	var amp = msg[4].asFloat;
 	var flatness = msg[3].asFloat,
 		pitch = msg[5].asFloat,
 		hasAmp = msg[6].asFloat;
-		
+
 	//values.mean;
-	
+
 	if((amp > 0.1) && (flatness >= 0.15), {
 		["noise", hasAmp].postln;
-		u.sendMsg(\noise, amp);
+		host.sendMsg(\noise, amp);
 	}, {
 		if((amp > 0.1) && (hasAmp == 1) && (pitch > 100) , {
 			if(gate == false, {
 				["pitch", pitch, hasAmp].postln;
-				u.sendMsg(\pitch, pitch);
+				host.sendMsg(\pitch, pitch);
 			});
 		});
 	});
@@ -342,9 +343,11 @@ OSCdef(\glottal, { |msg|
 	var amp = msg[3].asFloat,
 		pitch = msg[4].asFloat,
 		hasAmp = msg[5].asFloat;
-		
-	["glottal", amp].postln;
-	u.sendMsg(\glottal, 1);
+
+
+		["glottal", amp].postln;
+		host.sendMsg(\glottal, 1);
+
 }, '/glottal');
 
 	// Sensors
@@ -375,7 +378,7 @@ OSCdef(\glottal, { |msg|
 
 	w.onClose = {
 		/*p.close;*/
-		r.stop;
+		//r.stop;
 
 		thisProcess.removeOSCRecvFunc(f);
 
@@ -405,6 +408,8 @@ OSCdef(\glottal, { |msg|
 // Glottal holds sample indefinitely that was triggered by gesture
 // stopping the sound by just rearticulating the gesture
 
+/*
+//// PROTO
 (
 f.free;
 f = {
@@ -413,7 +418,7 @@ f = {
 	buff = LocalBuf(2048,1);
 	in = SoundIn.ar(0);
 	chain = FFT(buff, in);
-	
+
 	amp = Amplitude.kr(in);
 	#pitch, hasAmp = Pitch.kr(in);
 
@@ -426,7 +431,7 @@ h = {
 	buff = LocalBuf(2048,1);
 	in = SoundIn.ar(1);
 	chain = FFT(buff, in);
-	
+
 	onset = Onsets.kr(chain, 0.1, \complex);
 	amp = Amplitude.kr(in);
 	#pitch, hasAmp = Pitch.kr(in);
@@ -436,8 +441,7 @@ h = {
 )
 
 
-/*
-//// PROTO
+
 
 u = NetAddr.new("127.0.0.1", 9002);
 
@@ -451,9 +455,9 @@ OSCdef(\flatness, { |msg|
 	var flatness = msg[3].asFloat,
 		pitch = msg[5].asFloat,
 		hasAmp = msg[6].asFloat;
-		
+
 	//values.mean;
-	
+
 	if((amp > 0.1) && (flatness >= 0.15), {
 		["noise", hasAmp].postln;
 		u.sendMsg(\noise, amp);
@@ -471,7 +475,7 @@ OSCdef(\glottal, { |msg|
 	var amp = msg[3].asFloat,
 		pitch = msg[4].asFloat,
 		hasAmp = msg[5].asFloat;
-		
+
 	["glottal", amp].postln;
 	u.sendMsg(\glottal, 1);
 }, '/glottal');
