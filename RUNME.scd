@@ -200,6 +200,13 @@ var layout, tolerance=0.2;
 				AppClock.sched(0.25, {
 					w.background = Color.gray;
 				});
+			},
+			6, {
+				w.background = Color.black;
+				transmit.value(\gestureTracked, \none);
+				AppClock.sched(0.25, {
+					w.background = Color.gray;
+				});
 			}
 		);
 	};
